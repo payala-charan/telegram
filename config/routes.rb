@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "telegram/webhook"
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  post "/webhook", to: "telegram#webhook"
 end
