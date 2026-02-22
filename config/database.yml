@@ -82,8 +82,13 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: simple_app_production
+#   username: simple_app
+#   password: <%= ENV["SIMPLE_APP_DATABASE_PASSWORD"] %>
 production:
-  <<: *default
-  database: simple_app_production
-  username: simple_app
-  password: <%= ENV["SIMPLE_APP_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  url: <%= ENV["DATABASE_URL"] %>
