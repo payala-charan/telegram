@@ -2,6 +2,8 @@ class TelegramController < ApplicationController
   #skip_before_action :verify_authenticity_token
 
   def webhook
+    Rails.logger.info "🔥 TELEGRAM WEBHOOK HIT 🔥"
+    Rails.logger.info params.inspect
     message = params.dig(:message, :text)
     chat_id = params.dig(:message, :chat, :id)
 
